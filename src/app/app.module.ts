@@ -8,6 +8,9 @@ import { DetailsComponent } from './details/details.component';
 import { AddCategoryModalComponent } from './add-category-modal/add-category-modal.component';
 
 import { FormsModule } from '@angular/forms';
+import { addCategoryService } from './services/addCategory.service';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,8 +20,8 @@ import { FormsModule } from '@angular/forms';
     DetailsComponent,
     AddCategoryModalComponent,
   ],
-  imports: [BrowserModule, FormsModule],
-  providers: [],
+  imports: [BrowserModule, FormsModule, NgbModule],
+  providers: [addCategoryService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,4 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { addCategoryService } from '../services/addCategory.service';
+
+import {
+  ModalDismissReasons,
+  NgbModal,
+  NgbModalRef,
+} from '@ng-bootstrap/ng-bootstrap';
+import { AddCategoryModalComponent } from '../add-category-modal/add-category-modal.component';
 
 @Component({
   selector: 'app-header',
@@ -6,17 +14,18 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css', '../app.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  @ViewChild('modal') private modalComponent: AddCategoryModalComponent;
+
+  constructor(
+    private addCategoryService: addCategoryService,
+    private modalService: NgbModal
+  ) {}
 
   @Input() categoryTitle: string = '';
-  isModalOpen: boolean = false;
-
-  showModal() {
-    this.isModalOpen = !this.isModalOpen;
-  }
 
   OnAddCategory(title: string) {
-    console.log(title);
+    this.modalComponent.open();
+    this.addCategoryService.AddCategory(title);
   }
 
   ngOnInit(): void {}

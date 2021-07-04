@@ -12,7 +12,6 @@ export class AppComponent implements OnInit {
 
   showTasksDetails(tasks) {
     this.data = tasks;
-    console.log(this.data);
   }
 
   ngOnInit() {
