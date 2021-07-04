@@ -1,0 +1,24 @@
+<h2 class="text-center fst-italic">Zadania</h2>
+
+<div class="btn-group-vertical" style="width: 100%">
+  <!-- <button class="btn btn-primary" (click)="onDisplayTasks('training')">
+    Trening
+  </button>
+  <button class="btn btn-primary" (click)="onDisplayTasks('work')">
+    Praca
+  </button>
+  <button class="btn btn-primary" (click)="onDisplayTasks('relationships')">
+    Relacje
+  </button>
+  <button class="btn btn-primary" (click)="onDisplayTasks('others')">
+    Inne
+  </button> -->
+
+  <button
+    class="btn btn-primary"
+    *ngFor="let category of categories; let i = index"
+    (click)="onDisplayTasks(category.title, i)"
+  >
+    {{ category.title }}
+  </button>
+</div>
