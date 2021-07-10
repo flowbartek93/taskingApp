@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { addCategoryService } from './services/addCategory.service';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { appRouter } from './app-router.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     DetailsComponent,
     AddCategoryModalComponent,
   ],
-  imports: [BrowserModule, FormsModule, NgbModule],
+  imports: [BrowserModule, FormsModule, NgbModule, appRouter],
   providers: [addCategoryService],
   bootstrap: [AppComponent],
 })

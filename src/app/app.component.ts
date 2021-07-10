@@ -8,13 +8,5 @@ import { taskModel } from './tasks/task.model';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  @Input() data: taskModel[];
-
-  showTasksDetails(tasks) {
-    this.data = tasks;
-  }
-
-  ngOnInit() {
-    let data = window.localStorage.getItem('tasks');
-  }
+  ngOnInit() {}
 }

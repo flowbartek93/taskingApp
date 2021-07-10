@@ -3,15 +3,18 @@ import {
   Component,
   ElementRef,
   Injectable,
+  Input,
   OnInit,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
+
 import {
   ModalDismissReasons,
   NgbModal,
   NgbModalRef,
 } from '@ng-bootstrap/ng-bootstrap';
+import { addCategoryService } from '../services/addCategory.service';
 @Component({
   selector: 'app-add-category-modal',
   templateUrl: './add-category-modal.component.html',
@@ -22,9 +25,16 @@ export class AddCategoryModalComponent implements OnInit, AfterViewInit {
   @ViewChild('modal')
   private modalContent: TemplateRef<AddCategoryModalComponent>;
 
+  @Input() inputValue: string;
+
+  modalType: string;
+
   private modalRef: NgbModalRef;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(
+    private modalService: NgbModal,
+    private addCategory: addCategoryService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -39,6 +49,16 @@ export class AddCategoryModalComponent implements OnInit, AfterViewInit {
 
   dismiss() {
     this.modalRef.dismiss();
+  }
+
+  saveNewValue() {
+    if (this.modalType === 'category') {
+      this.addCategory.AddCategory(this.inputValue);
+    }
+  }
+
+  setModalType(type) {
+    this.modalType = type;
   }
 
   ngAfterViewInit() {}

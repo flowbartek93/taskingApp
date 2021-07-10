@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { addCategoryService } from '../services/addCategory.service';
 import { taskModel } from './task.model';
 
@@ -13,14 +14,19 @@ export class TasksComponent implements OnInit {
   categories: { title: string; tasks: taskModel[] }[] = [];
   taskType: taskModel[];
 
-  @Output() displayTasks = new EventEmitter<taskModel[]>();
+  taskName: string = 'training';
 
-  constructor(private addCategoryService: addCategoryService) {}
+  constructor(
+    private addCategoryService: addCategoryService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   onDisplayTasks(type: string, index: number) {
     if (type) {
+      this.taskName = type;
+
       this.taskType = this.addCategoryService.categories[index].tasks;
-      this.displayTasks.emit(this.taskType);
     } else {
       console.log('no type provided');
     }

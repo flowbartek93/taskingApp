@@ -1,15 +1,24 @@
 <ng-template #modal>
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title">Add Category Title</h5>
-      <button type="button" class="btn-close"></button>
+      <h5 class="modal-title">Add new {{ modalType }}</h5>
+      <button type="button" class="btn-close" (click)="close()"></button>
     </div>
     <div class="modal-body">
-      <input type="text" class="form-control" id="input-category-title" />
+      <input
+        type="text"
+        class="form-control"
+        id="input-category-title"
+        [(ngModel)]="inputValue"
+      />
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary">Close</button>
-      <button type="button" class="btn btn-primary">Save changes</button>
+      <button type="button" (click)="close()" class="btn btn-secondary">
+        Close
+      </button>
+      <button type="button" (click)="saveNewValue()" class="btn btn-primary">
+        Save changes
+      </button>
     </div>
   </div>
 </ng-template>

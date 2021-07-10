@@ -5,10 +5,22 @@
 <nav class="navbar bg-secondary m-2 shadow-lg">
   <div class="container-fluid">
     <ul class="navbar-nav flex-row">
-      <li class="nav-item"><a class="link-unstyled" href="#">Home</a></li>
-      <li class="nav-item"><a class="link-unstyled" href="#">Add task</a></li>
       <li class="nav-item">
-        <a class="link-unstyled" href="#" (click)="OnAddCategory(categoryTitle)"
+        <a class="link-unstyled" routerLink="" style="cursor: pointer">Home</a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="link-unstyled"
+          style="cursor: pointer"
+          (click)="openTaskModal('task')"
+          >Add task</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="link-unstyled"
+          style="cursor: pointer"
+          (click)="openCategoryModal('category')"
           >Add category</a
         >
       </li>

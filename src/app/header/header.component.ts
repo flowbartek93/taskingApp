@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { addCategoryService } from '../services/addCategory.service';
 
 import {
   ModalDismissReasons,
@@ -16,16 +15,14 @@ import { AddCategoryModalComponent } from '../add-category-modal/add-category-mo
 export class HeaderComponent implements OnInit {
   @ViewChild('modal') private modalComponent: AddCategoryModalComponent;
 
-  constructor(
-    private addCategoryService: addCategoryService,
-    private modalService: NgbModal
-  ) {}
-
-  @Input() categoryTitle: string = '';
-
-  OnAddCategory(title: string) {
+  openCategoryModal(type: string) {
     this.modalComponent.open();
-    this.addCategoryService.AddCategory(title);
+    this.modalComponent.setModalType(type);
+  }
+
+  openTaskModal(type: string) {
+    this.modalComponent.open();
+    this.modalComponent.setModalType(type);
   }
 
   ngOnInit(): void {}
