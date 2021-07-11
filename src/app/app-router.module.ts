@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
-import { DetailsComponent } from './details/details.component';
-import { TasksComponent } from './tasks/tasks.component';
+
+import { TaskPanelComponent } from './task-panel/task-panel.component';
+import { TasksListComponent } from './task-panel/tasks-list/tasks-list.component';
+
 const appRoutes: Routes = [
   {
-    path: 'tasks/:name',
-    component: DetailsComponent,
+    path: '',
+    redirectTo: 'tasks/training',
+    pathMatch: 'full',
+  },
+  {
+    path: 'tasks',
+    component: TaskPanelComponent,
+    children: [{ path: ':name', component: TasksListComponent }],
   },
 ];
 

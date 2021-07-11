@@ -1,4 +1,4 @@
-import { taskModel } from '../tasks/task.model';
+import { taskModel } from '../task-panel/task.model';
 
 export class addCategoryService {
   categories: { title: string; tasks: taskModel[] }[] = [

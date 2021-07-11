@@ -4,7 +4,6 @@
   <button
     class="btn btn-primary"
     *ngFor="let category of categories; let i = index"
-    [routerLink]="['/tasks', taskName]"
     (click)="onDisplayTasks(category.title, i)"
   >
     {{ category.title }}

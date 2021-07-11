@@ -1,6 +1,5 @@
-import { Input, OnInit } from '@angular/core';
+import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
-import { taskModel } from './tasks/task.model';
 
 @Component({
   selector: 'app-root',
